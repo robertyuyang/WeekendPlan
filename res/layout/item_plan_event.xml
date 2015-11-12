@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:orientation="vertical"
+    tools:context="com.sogou.weekendplan.activity.MainActivity" >
+
+   <ImageView
+       android:id="@+id/event_img"
+       android:layout_width="100dp"
+       android:layout_height="90dp"
+       android:scaleType="fitXY"
+       android:src="@drawable/event" />
+   
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="80dp" 
+       android:layout_toRightOf="@+id/event_img"
+       android:layout_marginLeft="20dp"
+       android:paddingTop="5dp"
+       android:paddingBottom="5dp"
+       android:orientation="vertical">
+
+       <TextView
+           android:id="@+id/event_name"
+           android:layout_width="match_parent"
+           android:layout_height="25dp"
+           android:text="电影院" >
+</TextView>
+
+       <TextView
+           android:id="@+id/event_location"
+           android:layout_width="match_parent"
+           android:layout_height="25dp"
+           android:text="搜狐网络大厦8层2041室" >
+</TextView>
+
+       <TextView
+           android:id="@+id/event_mark"
+           android:layout_width="match_parent"
+           android:layout_height="25dp"
+           android:text="人均：20 评分 7.8" >
+</TextView>
+       
+   </LinearLayout>
+
+</RelativeLayout>
