@@ -8,6 +8,8 @@ import java.util.Map.Entry;
 import com.sogou.weekendplan.plan.PlanEvent;
 import com.sogou.weekendplan.plan.PlanFactory;
 import com.sogou.weekendplan.plan.PlanPackage;
+import com.sogou.weekendplan.uicontrol.DefinedScrollView;
+
 import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
 import android.os.Bundle;
@@ -22,22 +24,25 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class PlanFragment extends Fragment
+public class PlanOptionFragment extends Fragment
 {
 	private View mView;
+	private View itemView;
+	private View itemView2;
 	private ListAdapter mAdapter;
 	private PlanPackage planPackage;
 	
 	private PlanFactory planFactory;
 	
-	public PlanFragment(PlanFactory planFactory){
+	public PlanOptionFragment(PlanFactory planFactory){
 		this.planFactory = planFactory;
 	}
 	
 	public void SetPlanPackage(PlanPackage planPackage){
 		this.planPackage = planPackage;
 		if(mView != null){
-			initView();
+			initView(itemView);
+			initView(itemView2);
 		}
 		
 	}
@@ -51,19 +56,36 @@ public class PlanFragment extends Fragment
 	{
 		if (mView == null)
 		{
-			mView = inflater.inflate(R.layout.fragment_plan, container, false);
+			mView = inflater.inflate(R.layout.fragment_plan_options, container, false);
+			
+			itemView = inflater.inflate(R.layout.fragment_plan_option, container, false);
+			itemView2= inflater.inflate(R.layout.fragment_plan_option, container, false);
+			
+			DefinedScrollView scrollView = (DefinedScrollView) mView.findViewById(R.id.definedview);
+			scrollView.addView(itemView);
+			scrollView.addView(itemView2);
+			
+			scrollView.setPageListener(new DefinedScrollView.PageListener() {
+				@Override
+				public void page(int page) { 
+				
+				} 
+			}); 
+			
+			
 			if(planPackage != null){
-				initView();
+				initView(itemView);
+				initView(itemView2);
 			}
 			
 		}
 		return mView;
 	}
 
-	private void initView()	{
+	private void initView(View view)	{
 		
-		ListView planDetails =  (ListView)mView.findViewById(R.id.plan_details);
-		TextView tvPlanName = (TextView)mView.findViewById(R.id.tv_plan_name);
+		ListView planDetails =  (ListView)view.findViewById(R.id.plan_details);
+		TextView tvPlanName = (TextView)view.findViewById(R.id.tv_plan_name); 
 		
 		mAdapter = new PlanAdapter(getActivity(), this.planPackage.eventList);
 		planDetails.setAdapter(mAdapter);
@@ -104,7 +126,7 @@ public class PlanFragment extends Fragment
 			}
 		};
 		
-		ViewGroup group = (ViewGroup)mView.findViewById(R.id.issue_group);
+		ViewGroup group = (ViewGroup)this.itemView.findViewById(R.id.issue_group);
 		group.removeAllViews();
 		int i = 0;
 		for(Entry<Integer, String> entry:this.planPackage.potentialIssueMap.entrySet()){

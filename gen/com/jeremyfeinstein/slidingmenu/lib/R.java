@@ -30,10 +30,10 @@ public final class R {
 		public static final int none = 0x7f090010;
 		public static final int right = 0x7f090020;
 		public static final int selected_view = 0x7f090009;
-		public static final int slidingmenumain = 0x7f090070;
+		public static final int slidingmenumain = 0x7f090072;
 	}
 	public static final class layout {
-		public static final int slidingmenumain = 0x7f030024;
+		public static final int slidingmenumain = 0x7f030025;
 	}
 	public static final class styleable {
 		public static final int[] SlidingMenu = { 0x7f0100a9, 0x7f0100aa, 0x7f0100ab, 0x7f0100ac, 0x7f0100ad, 0x7f0100ae, 0x7f0100af, 0x7f0100b0, 0x7f0100b1, 0x7f0100b2, 0x7f0100b3, 0x7f0100b4, 0x7f0100b5, 0x7f0100b6 };

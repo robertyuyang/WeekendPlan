@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sogou.weekendplan.MenuLeftFragment;
-import com.sogou.weekendplan.PlanFragment;
+import com.sogou.weekendplan.PlanOptionFragment;
 import com.sogou.weekendplan.R;
 import com.sogou.weekendplan.R.id;
 import com.sogou.weekendplan.R.layout;
@@ -36,7 +36,7 @@ import android.widget.Button;
 public class PlanGenerateActivity extends LeftMenuBaseActivity {
 
 	private ViewPager planView;
-	private List<PlanFragment> planFragmentList;
+	private List<PlanOptionFragment> planFragmentList;
 	
 	private PlanFactory planFactory;
 	private PlanPackage newPlanPack;
@@ -121,10 +121,10 @@ public class PlanGenerateActivity extends LeftMenuBaseActivity {
 	}
 	public void initViewPager(){
 		
-		planFragmentList = new ArrayList<PlanFragment>();
-		planFragmentList.add(new PlanFragment(this.planFactory));
-		planFragmentList.add(new PlanFragment(this.planFactory));
-		planFragmentList.add(new PlanFragment(this.planFactory));
+		planFragmentList = new ArrayList<PlanOptionFragment>();
+		planFragmentList.add(new PlanOptionFragment(this.planFactory));
+		planFragmentList.add(new PlanOptionFragment(this.planFactory));
+		planFragmentList.add(new PlanOptionFragment(this.planFactory));
 
 		
 		planView = (ViewPager)findViewById(R.id.viewpager_plan);
